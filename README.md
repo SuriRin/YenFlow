@@ -24,109 +24,369 @@ This repository uses the recommended structure for a Soroban project:
 - Contracts should have their own `Cargo.toml` files that rely on the top-level `Cargo.toml` workspace for their dependencies.
 - Frontend libraries can be added to the top-level directory as well. If you initialized this project with a frontend template via `--frontend-template` you will have those files already included.
 
-# Overview
+# YenFlow
 
-YenFlow is a cross-border payment and escrow application designed for independent artists in Japan who receive commission work from overseas clients. The project enables artists to accept international payments using Stellar USDC while protecting both buyers and creators through Soroban smart contract escrow.
+Cross-border commission escrow for Japanese artists receiving payments from overseas clients using Stellar and Soroban.
 
-The primary goal is to remove common problems in international creator payments: high fees, payment delays, currency conversion losses, and disputes.
+---
 
+## Overview
 
-# YenFlow — Key Features
-### 1. Global Commission Payment Links
+YenFlow is a payment and escrow application designed for independent artists in Japan who earn through international commissions. It enables creators to receive fast and low-cost payments from overseas buyers using Stellar USDC while protecting both parties through a Soroban smart contract escrow system.
 
-Artists generate a shareable payment link for each commission request (example: anime illustration for 25 USDC). Fans from any country can pay instantly.
+The goal is to remove payment delays, reduce fees, and create a safer commission workflow.
 
-Benefit: Removes bank transfers and PayPal friction.
+---
 
-### 2. Soroban Escrow Protection
+## Problem
 
-Payments are locked in a Soroban smart contract until the commission is delivered and confirmed.
+Independent anime illustrators, VTuber asset creators, and digital artists in Japan often receive international commissions through Discord, X, and portfolio websites.
 
-Flow:
-Customer pays → funds locked → artist delivers → customer confirms → funds released
+Current payment methods create several issues:
 
-Benefit: Reduces scam risk for both parties.
+- High PayPal and international transfer fees
+- Currency conversion losses
+- Delayed payouts (3–7 days)
+- Payment disputes and chargeback risks
+- Small commissions becoming less profitable
 
-### 3. Instant USDC Settlement
+For creators earning through frequent low-value commissions, these costs significantly reduce income.
 
-Payments use Stellar USDC for near real-time transfers.
+---
 
-Benefit: Artists avoid waiting several business days for international payments.
+## Solution
 
-### 4. Low-Cost Cross-Border Payments
+YenFlow allows overseas customers to pay using Stellar USDC while funds are temporarily secured inside a Soroban escrow smart contract.
 
-Stellar transaction fees are extremely small, making small commissions practical.
+Workflow:
+
+1. Artist creates commission request
+2. Customer submits payment
+3. Soroban contract locks funds
+4. Artist completes commission
+5. Buyer confirms delivery
+6. Payment automatically releases
+
+This creates trust without relying on traditional payment intermediaries.
+
+---
+
+## Key Features
+
+### Global Commission Payment Links
+Artists generate shareable payment links for commissions.
 
 Example:
-$10 profile icons or $15 VTuber emotes remain profitable.
 
-Benefit: Artists keep more of their earnings.
+Illustration commission → 25 USDC payment request
 
-### 5. Multi-Currency Friendly Payments
+---
 
-Overseas fans can pay with USDC while artists can later convert funds through Stellar infrastructure.
+### Smart Contract Escrow
 
-Benefit: Reduces conversion losses from traditional payment processors.
+Funds remain locked until commission completion is verified.
 
-### 6. Delivery Confirmation System
+Flow:
 
-Artists mark work as completed, and buyers approve delivery before payment release.
+Customer Pays → Escrow Locks → Delivery → Confirmation → Release
 
-On-chain state changes:
+---
 
-Pending
-Delivered
-Released
+### Instant International Payments
 
-Benefit: Transparent transaction status.
+Uses Stellar USDC for fast settlement.
 
-### 7. Artist Reputation Badge Tokens
+Benefits:
 
-Issue non-transferable Stellar custom assets as achievement or trust badges.
+- Near-instant payments
+- Low transaction fees
+- No waiting several business days
 
-Examples:
+---
 
-100 Completed Orders
-Verified Artist
-Top Creator
+### Delivery Confirmation System
 
-Benefit: Creates portable on-chain reputation.
+The contract tracks:
 
-### 8. Wallet-Light Onboarding
+- Pending
+- Delivered
+- Released
 
-Overseas fans can pay through temporary payment links and social login instead of manually creating wallets.
+This gives both parties transparency.
 
-Benefit: Less crypto knowledge required.
+---
 
-### 9. Commission Dashboard
+### Artist Reputation System (Future Feature)
 
-Artists view:
+Creators may earn on-chain achievement assets:
 
-Active commissions
-Payment status
-Escrow progress
-Earnings history
-Completed orders
+- Verified Artist
+- Top Creator
+- 100 Completed Orders
 
-Benefit: Simple creator workflow.
+---
 
-### 10. Mobile-First Creator Experience
+### Mobile-First Experience
 
-Many Japanese independent artists primarily use mobile apps and social platforms like X and Discord.
+Many Japanese creators work primarily through mobile apps and social platforms.
 
-Benefit: Entire payment flow works from a phone.
+YenFlow is designed for mobile use.
 
-# Value Proposition
+---
 
-### For artists:
+## Target Users
 
-Receive money faster
-Lower payment fees
-Reduce conversion loss
-Protection against payment disputes
+### Primary Users
 
-### For buyers:
+Independent:
 
+- Anime illustrators
+- Doujin artists
+- VTuber creators
+- Freelance digital artists
+
+Location:
+
+- Tokyo
+- Osaka
+- Kyoto
+- Japan creator communities
+
+Income range:
+
+¥50,000–¥300,000/month
+
+---
+
+## Stellar Features Used
+
+- USDC transfers
+- XLM transaction fees
+- Soroban smart contracts
+- Trustlines
+
+---
+
+## MVP Demo Flow
+
+Demo duration: under 2 minutes
+
+### Step 1
+Artist creates a commission request
+
+### Step 2
+Customer sends payment
+
+### Step 3
+Funds become escrowed on-chain
+
+### Step 4
+Artist marks completed work
+
+### Step 5
+Customer confirms
+
+### Step 6
+Contract releases payment
+
+---
+
+## Smart Contract Architecture
+
+Main contract functions:
+
+### create_payment()
+
+Creates escrow record.
+
+Inputs:
+
+- customer
+- artist
+- amount
+- commission ID
+
+---
+
+### mark_delivered()
+
+Allows artist to mark work complete.
+
+---
+
+### release()
+
+Allows customer approval and payment release.
+
+---
+
+### get()
+
+Retrieves escrow data.
+
+---
+
+## Project Structure
+
+```text
+yen_flow/
+│
+├── src/
+│   ├── lib.rs
+│   └── test.rs
+│
+├── Cargo.toml
+│
+├── README.md
+│
+└── frontend/
+```
+
+---
+
+## Timeline
+
+### Week 1
+
+- Soroban contract development
+- Escrow logic
+- Unit testing
+
+### Week 2
+
+- Frontend integration
+- Wallet connection
+
+### Week 3
+
+- Testnet deployment
+- Demo preparation
+
+---
+
+## Prerequisites
+
+Install Rust:
+
+```bash
+https://rustup.rs
+```
+
+Install Soroban CLI:
+
+```bash
+cargo install soroban-cli
+```
+
+Verify installation:
+
+```bash
+soroban --version
+```
+
+---
+
+## Build
+
+```bash
+soroban contract build
+```
+
+---
+
+## Test
+
+```bash
+cargo test
+```
+
+---
+
+## Deploy To Stellar Testnet
+
+```bash
+soroban contract deploy \
+--wasm target/wasm32-unknown-unknown/release/yen_flow.wasm \
+--source alice \
+--network testnet
+```
+
+---
+
+## Example Contract Invocation
+
+Create commission:
+
+```bash
+soroban contract invoke \
+--id CONTRACT_ID \
+--source alice \
+-- create_payment \
+--id 1 \
+--customer GABC123 \
+--artist GXYZ123 \
+--amount 25
+```
+
+Mark delivered:
+
+```bash
+soroban contract invoke \
+--id CONTRACT_ID \
+--source artist \
+-- mark_delivered \
+--id 1 \
+--artist GXYZ123
+```
+
+Release payment:
+
+```bash
+soroban contract invoke \
+--id CONTRACT_ID \
+--source customer \
+-- release \
+--id 1 \
+--customer GABC123
+```
+
+---
+
+## Future Roadmap
+
+### AI Translation Assistant
+
+Automatically translate commission requests between Japanese and English.
+
+---
+
+### Anchor Integration
+
+Allow USDC conversion into local banking systems.
+
+---
+
+### Social Wallet Login
+
+Reduce onboarding friction for non-crypto users.
+
+---
+
+### On-chain Creator Reputation
+
+Portable trust and commission history.
+
+---
+
+## Vision
+
+YenFlow aims to become payment infrastructure for creator economies in Japan by helping artists receive international income instantly and securely.
+
+---
+
+## License
+
+MIT License
 Funds protected until work is delivered
 Transparent payment status
 Trust without intermediaries
