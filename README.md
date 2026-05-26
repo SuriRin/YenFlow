@@ -24,14 +24,14 @@ This repository uses the recommended structure for a Soroban project:
 - Contracts should have their own `Cargo.toml` files that rely on the top-level `Cargo.toml` workspace for their dependencies.
 - Frontend libraries can be added to the top-level directory as well. If you initialized this project with a frontend template via `--frontend-template` you will have those files already included.
 
-Overview
+# Overview
 
 YenFlow is a cross-border payment and escrow application designed for independent artists in Japan who receive commission work from overseas clients. The project enables artists to accept international payments using Stellar USDC while protecting both buyers and creators through Soroban smart contract escrow.
 
 The primary goal is to remove common problems in international creator payments: high fees, payment delays, currency conversion losses, and disputes.
 
 
-- YenFlow — Key Features
+# YenFlow — Key Features
 1. Global Commission Payment Links
 
 Artists generate a shareable payment link for each commission request (example: anime illustration for 25 USDC). Fans from any country can pay instantly.
