@@ -1,3 +1,6 @@
+<img width="1780" height="980" alt="image" src="https://github.com/user-attachments/assets/adbb7db5-d716-40a1-90b1-ed43912ee637" />
+
+
 # Soroban Project
 
 ## Project Structure
