@@ -116,3 +116,17 @@ Many Japanese independent artists primarily use mobile apps and social platforms
 
 Benefit: Entire payment flow works from a phone.
 
+# Value Proposition
+
+### For artists:
+
+Receive money faster
+Lower payment fees
+Reduce conversion loss
+Protection against payment disputes
+
+### For buyers:
+
+Funds protected until work is delivered
+Transparent payment status
+Trust without intermediaries
