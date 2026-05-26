@@ -32,13 +32,13 @@ The primary goal is to remove common problems in international creator payments:
 
 
 # YenFlow — Key Features
-1. Global Commission Payment Links
+### 1. Global Commission Payment Links
 
 Artists generate a shareable payment link for each commission request (example: anime illustration for 25 USDC). Fans from any country can pay instantly.
 
 Benefit: Removes bank transfers and PayPal friction.
 
-2. Soroban Escrow Protection
+### 2. Soroban Escrow Protection
 
 Payments are locked in a Soroban smart contract until the commission is delivered and confirmed.
 
@@ -47,13 +47,13 @@ Customer pays → funds locked → artist delivers → customer confirms → fun
 
 Benefit: Reduces scam risk for both parties.
 
-3. Instant USDC Settlement
+### 3. Instant USDC Settlement
 
 Payments use Stellar USDC for near real-time transfers.
 
 Benefit: Artists avoid waiting several business days for international payments.
 
-4. Low-Cost Cross-Border Payments
+### 4. Low-Cost Cross-Border Payments
 
 Stellar transaction fees are extremely small, making small commissions practical.
 
@@ -62,13 +62,13 @@ $10 profile icons or $15 VTuber emotes remain profitable.
 
 Benefit: Artists keep more of their earnings.
 
-5. Multi-Currency Friendly Payments
+### 5. Multi-Currency Friendly Payments
 
 Overseas fans can pay with USDC while artists can later convert funds through Stellar infrastructure.
 
 Benefit: Reduces conversion losses from traditional payment processors.
 
-6. Delivery Confirmation System
+### 6. Delivery Confirmation System
 
 Artists mark work as completed, and buyers approve delivery before payment release.
 
@@ -80,7 +80,7 @@ Released
 
 Benefit: Transparent transaction status.
 
-7. Artist Reputation Badge Tokens
+### 7. Artist Reputation Badge Tokens
 
 Issue non-transferable Stellar custom assets as achievement or trust badges.
 
@@ -92,13 +92,13 @@ Top Creator
 
 Benefit: Creates portable on-chain reputation.
 
-8. Wallet-Light Onboarding
+### 8. Wallet-Light Onboarding
 
 Overseas fans can pay through temporary payment links and social login instead of manually creating wallets.
 
 Benefit: Less crypto knowledge required.
 
-9. Commission Dashboard
+### 9. Commission Dashboard
 
 Artists view:
 
@@ -110,7 +110,7 @@ Completed orders
 
 Benefit: Simple creator workflow.
 
-10. Mobile-First Creator Experience
+### 10. Mobile-First Creator Experience
 
 Many Japanese independent artists primarily use mobile apps and social platforms like X and Discord.
 
